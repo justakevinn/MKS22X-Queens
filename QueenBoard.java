@@ -20,6 +20,21 @@ public class QueenBoard{
     return true;
   }
 
+  private boolean removeQueen(int r, int c){
+    board[r][c] = 0;
+    for (int x = c+1; x < board[r].length; x++){
+      board[r][x] -= 1;
+    }
+    for (int i = 1; r+i < board.length && c+i < board[0].length; i++ ){
+      board[r+i][c+i] -= 1;
+    }
+    for (int i = 1; r-i >= 0 && c+i < board.length; i++ ){
+      board[r-i][c+i] -= 1;
+    }
+    return true;
+  }
+
+
 
   public String toString(){
     String s = "";
@@ -46,6 +61,10 @@ public class QueenBoard{
   public static void main(String[] args){
     QueenBoard test = new QueenBoard(4);
     test.addQueen(1, 0);
+    System.out.println(test);
+    test.addQueen(3, 1);
+    System.out.println(test);
+    test.removeQueen(1, 0);
     System.out.println(test);
 
   }
