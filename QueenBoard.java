@@ -6,7 +6,14 @@ public class QueenBoard{
     board = new int[size][size];
   }
 
+  private boolean addQueen(int r, int c){
+    board[r][c] = -1;
+    for (int x = 0; x < board[r].length; x++){
+      if (x != c) board[r][x] += 1;
+      if (x != r) board[x][c] += 1;
 
+    }
+  }
 
 
   public String toString(){
