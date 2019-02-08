@@ -8,11 +8,16 @@ public class QueenBoard{
 
   private boolean addQueen(int r, int c){
     board[r][c] = -1;
-    for (int x = 0; x < board[r].length; x++){
-      if (x != c) board[r][x] += 1;
-      if (x != r) board[x][c] += 1;
-
+    for (int x = c+1; x < board[r].length; x++){
+      board[r][x] += 1;
     }
+    for (int i = 1; r+i < board.length && c+i < board[0].length; i++ ){
+      board[r+i][c+i] += 1;
+    }
+    for (int i = 1; r-i >= 0 && c+i < board.length; i++ ){
+      board[r-i][c+i] += 1;
+    }
+    return true;
   }
 
 
@@ -25,7 +30,12 @@ public class QueenBoard{
           s += "Q ";
         }
         else{
-          s += "_ ";
+          if (board[i][x] != 0){
+            s = s + board[i][x] + " ";
+          }
+          else{
+            s+= "_ ";
+          }
         }
       }
     }
@@ -35,6 +45,7 @@ public class QueenBoard{
 
   public static void main(String[] args){
     QueenBoard test = new QueenBoard(4);
+    test.addQueen(1, 0);
     System.out.println(test);
 
   }
