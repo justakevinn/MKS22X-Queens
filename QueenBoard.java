@@ -66,6 +66,17 @@ public class QueenBoard{
       return s;
     }
 
+    public boolean solve(){
+      for (int i = 0 ; i < board.length; i++) {
+        for (int j = 0; j < board.length; j++) {
+          if (board[i][j] != 0) {
+            throw new IllegalStateException();
+          }
+        }
+      }
+      return false;
+    }
+
     public static void main(String[] args){
       QueenBoard test = new QueenBoard(4);
       test.addQueen(1, 0);
