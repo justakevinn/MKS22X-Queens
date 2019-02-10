@@ -106,9 +106,21 @@ public class QueenBoard{
 
 
 
-    public int countSolutions(){
-      return 0;
+    public boolean countSolutions(){
+      for (int i = 0 ; i < board.length; i++) {
+        for (int j = 0; j < board.length; j++) {
+          if (board[i][j] != 0) {
+            throw new IllegalStateException();
+          }
+        }
+      }
+      return countSolutionsH(this,0);
     }
+
+    public boolean countSolutionsH(QueenBoard Q, int c){
+      return true;
+    }
+
 
     public static void main(String[] args){
       QueenBoard test = new QueenBoard(4);
