@@ -106,7 +106,7 @@ public class QueenBoard{
 
 
 
-    public boolean countSolutions(){
+    public int countSolutions(){
       for (int i = 0 ; i < board.length; i++) {
         for (int j = 0; j < board.length; j++) {
           if (board[i][j] != 0) {
@@ -117,9 +117,21 @@ public class QueenBoard{
       return countSolutionsH(this,0);
     }
 
-    public boolean countSolutionsH(QueenBoard Q, int c){
-      return true;
+
+    public int countSolutionsH(QueenBoard Q, int col){
+      int total = 0;
+      if (col >= board.length) {
+    		return 1;
+    	}
+      for (int i = 0; i < board.length; i++) {
+    		if (Q.addQueen(i,col)) {
+    			total += countSolutionsH(Q,col+1);
+    			Q.removeQueen(i,col);
+    		}
+    	}
+    	return total;
     }
+
 
 
     public static void main(String[] args){
