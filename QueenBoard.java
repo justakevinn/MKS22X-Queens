@@ -66,6 +66,12 @@ public class QueenBoard{
       return s;
     }
 
+
+    /**
+     *@return false when the board is not solveable and leaves the board filled with zeros;
+     *        true when the board is solveable, and leaves the board in a solved state
+     *@throws IllegalStateException when the board starts with any non-zero value
+     */
     public boolean solve(){
       for (int i = 0 ; i < board.length; i++) {
         for (int j = 0; j < board.length; j++) {
@@ -74,12 +80,39 @@ public class QueenBoard{
           }
         }
       }
+      return solveH(this,0);
+    }
+
+
+
+    public boolean solveH(QueenBoard Q, int col) {
+      if (col >= board.length) {
+        return true;
+      }
+      for (int i = 0; i < board.length; i ++) {
+        if (Q.addQueen(i, col)) {
+          if (solveH(Q,col+1)) {
+            //System.out.println(toString());
+            return true;
+          }
+          else {
+            Q.removeQueen(i,col);
+          }
+        }
+      }
       return false;
+    }
+
+
+
+
+    public int countSolutions(){
+      return 0;
     }
 
     public static void main(String[] args){
       QueenBoard test = new QueenBoard(4);
-      test.addQueen(1, 0);
+      /*test.addQueen(1, 0);
       System.out.println(test);
       System.out.println(test.addQueen(0,1));
       System.out.println(test);
@@ -88,7 +121,10 @@ public class QueenBoard{
       System.out.println(test.removeQueen(2,1));
       System.out.println(test);
       test.removeQueen(1, 0);
-      System.out.println(test);
+      System.out.println(test);*/
+      System.out.println(test.solve());
+      //System.out.println(test);
+
 
     }
 
