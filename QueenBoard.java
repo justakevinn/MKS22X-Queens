@@ -86,11 +86,16 @@ public class QueenBoard{
 
 
     public boolean solveH(QueenBoard Q, int col) {
+    //  System.out.println(Text.go(1,1));
+    //  System.out.println(this);Text.wait(150); //adjust this delay
       if (col >= board.length) {
         return true;
       }
       for (int i = 0; i < board.length; i ++) {
         if (Q.addQueen(i, col)) {
+    //      System.out.println(Text.go(1,1));
+    //      System.out.println(this);Text.wait(150); //adjust this delay
+
           if (solveH(Q,col+1)) {
             //System.out.println(toString());
             return true;
@@ -136,7 +141,7 @@ public class QueenBoard{
 
 
     public static void main(String[] args){
-      QueenBoard test = new QueenBoard(5);
+      QueenBoard test = new QueenBoard(6);
       /*test.addQueen(1, 0);
       System.out.println(test);
       System.out.println(test.addQueen(0,1));
@@ -149,7 +154,7 @@ public class QueenBoard{
       System.out.println(test);*/
       //System.out.println(test.solve());
       //System.out.println(test);
-      System.out.println(test.countSolutions());
+      System.out.println(test.solve());
 
     }
 
