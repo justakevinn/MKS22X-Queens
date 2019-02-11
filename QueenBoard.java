@@ -127,6 +127,7 @@ public class QueenBoard{
     		if (Q.addQueen(i,col)) {
     			total += countSolutionsH(Q,col+1);
     			Q.removeQueen(i,col);
+          //System.out.println(toString());
     		}
     	}
     	return total;
@@ -135,7 +136,7 @@ public class QueenBoard{
 
 
     public static void main(String[] args){
-      QueenBoard test = new QueenBoard(4);
+      QueenBoard test = new QueenBoard(5);
       /*test.addQueen(1, 0);
       System.out.println(test);
       System.out.println(test.addQueen(0,1));
@@ -146,9 +147,9 @@ public class QueenBoard{
       System.out.println(test);
       test.removeQueen(1, 0);
       System.out.println(test);*/
-      System.out.println(test.solve());
+      //System.out.println(test.solve());
       //System.out.println(test);
-
+      System.out.println(test.countSolutions());
 
     }
 
