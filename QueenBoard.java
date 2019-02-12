@@ -6,6 +6,14 @@ public class QueenBoard{
     board = new int[size][size];
   }
 
+  private void clear(){
+    for (int i = 0; i < board.length; i++){
+      for (int j = 0; j < board[0].length; j++){
+        board[i][j] = 0;
+      }
+    }
+  }
+
   private boolean addQueen(int r, int c){
     if (board[r][c] != 0){
       return false;
@@ -87,14 +95,14 @@ public class QueenBoard{
 
     public boolean solveH(QueenBoard Q, int col) {
     //  System.out.println(Text.go(1,1));
-    //  System.out.println(this);Text.wait(150); //adjust this delay
+    //  System.out.println(this);Text.wait(50); //adjust this delay
       if (col >= board.length) {
         return true;
       }
       for (int i = 0; i < board.length; i ++) {
         if (Q.addQueen(i, col)) {
     //      System.out.println(Text.go(1,1));
-    //      System.out.println(this);Text.wait(150); //adjust this delay
+    //      System.out.println(this);Text.wait(50); //adjust this delay
 
           if (solveH(Q,col+1)) {
             //System.out.println(toString());
@@ -135,13 +143,14 @@ public class QueenBoard{
           //System.out.println(toString());
     		}
     	}
+      Q.clear();
     	return total;
     }
 
 
 
     public static void main(String[] args){
-      QueenBoard test = new QueenBoard(6);
+      QueenBoard test = new QueenBoard(16);
       /*test.addQueen(1, 0);
       System.out.println(test);
       System.out.println(test.addQueen(0,1));
