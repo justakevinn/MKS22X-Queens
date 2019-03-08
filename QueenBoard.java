@@ -146,7 +146,7 @@ public class QueenBoard{
     return total;
   }
 
-  public static void runTest(int i){
+/*  public static void runTest(int i){
     QueenBoard b;
     int[]tests =   {1,2,3,4,5,8};
     int[]answers = {1,0,0,2,10,92};
@@ -163,6 +163,7 @@ public class QueenBoard{
       }
     }
   }
+  */
 
   public static void main(String[] args){
     //QueenBoard test = new QueenBoard(16);
@@ -179,12 +180,12 @@ public class QueenBoard{
     //System.out.println(test.solve());
     //System.out.println(test);
     //System.out.println(test.solve());
-    runTest(0);
-    runTest(1);
-    runTest(2);
-    runTest(3);
-    runTest(4);
-    runTest(5);
+    //runTest(0);
+    //runTest(1);
+    //runTest(2);
+    //runTest(3);
+    //runTest(4);
+    //runTest(5);
 
   }
 
