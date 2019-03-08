@@ -177,7 +177,6 @@ public class QueenBoard{
     System.out.println(test);
     test.removeQueen(1, 0);
     System.out.println(test);*/
-    //System.out.println(test.solve());
     //System.out.println(test);
     //System.out.println(test.solve());
     //runTest(0);
